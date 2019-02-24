@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Réalisations{% endblock %}
+{% block content %}
+<h2>Mes Projets réalisés</h2>
+{% for realisation in realisations %}
+<div class="realisations">
+    <h3>{{ realisation.titre }}</h3>
+    <p>{{ realisation.image }}</p>
+    <p>{{ realisation.description|linebreaksbr}}</p>
+    <p>{{ realisation.lien }}</p>
+</div>
+{% endfor %}
+{% endblock %}

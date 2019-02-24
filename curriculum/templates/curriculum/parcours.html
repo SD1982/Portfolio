@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Mon CV{% endblock %}
+{% block content %}
+<h2>Parcours Professionnel et Scolaire</h2>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="btn btn-outline-secondary" data-toggle="tab" href="#pro">Expériences professionnelles</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-outline-secondary" data-toggle="tab" href="#scolaire">Diplômes & Formations</a>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="pro">
+        {% for experience in experiences %}
+        <div class="experiences">
+            <h3>{{ experience.fonction }}</h3>
+            <p>{{ experience.employeur }}</p>
+            <p>{{ experience.ville }}</p>
+            <p>{{ experience.description|linebreaksbr}}</p>
+            <p>{{ experience.debut }}</p>
+            <p>{{ experience.fin }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="tab-pane fade" id="scolaire">
+        {% for diplome in diplomes %}
+        <div class="diplomes">
+            <h3>{{ diplome.intitule }}</h3>
+            <p>{{ diplome.ecole }}</p>
+            <p>{{ diplome.ville }}</p>
+            <p>{{ diplome.description|linebreaksbr }}</p>
+            <p>{{ diplome.debut }}</p>
+            <p>{{ diplome.fin }}</p>
+            <p>{{ diplome.obtenu }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
