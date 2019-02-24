@@ -3,11 +3,17 @@
 {% block content %}
 <h2>Mes Projets réalisés</h2>
 {% for realisation in realisations %}
-<div class="realisations">
-    <h3>{{ realisation.titre }}</h3>
+<div class="jumbotron">
+    <h1 class="display-3">{{ realisation.titre }}</h1>
     <p>{{ realisation.image }}</p>
-    <p>{{ realisation.description|linebreaksbr}}</p>
-    <p>{{ realisation.lien }}</p>
+    <hr class="my-4">
+    <p class="lead">{{ realisation.description|linebreaksbr}}</p>
+    <p class="lead">
+        <a class="btn btn-outline-info" href="{{ realisation.lien }}" target=_blank role="button">Voir le projet</a>
+    </p>
+    <p class="lead">
+        <a class="btn btn-outline-info" href="{{ realisation.code }}" target=_blank role="button">Voir le code</a>
+    </p>
 </div>
 {% endfor %}
 {% endblock %}

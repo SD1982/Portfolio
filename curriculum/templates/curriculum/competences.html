@@ -3,16 +3,17 @@
 {% block content %}
 <h2>Mes Compétences</h2>
 {% for competence in competences %}
-<div class="competences">
+<div class="jumbotron">
+    <h1 class="display-3">{{ competence.techno }}</h1>
     {% load static %}
     <img src="{% static competence.image %}" alt="image html5 et css3">
-    <p>{{ competence.description|linebreaksbr}}</p>
+    <hr class="my-4">
+    <p class="lead">{{ competence.description|linebreaksbr}}</p>
     <div class="progress">
         <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar"
             aria-valuenow="{{ competence.niveau  }}" aria-valuemin="0" aria-valuemax="100"
             style="width: {{ competence.niveau }}%">{{ competence.niveau  }}%</div>
     </div>
-
 </div>
 {% endfor %}
 {% endblock %}
