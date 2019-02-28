@@ -5,14 +5,15 @@
 {% for realisation in realisations %}
 <div class="jumbotron">
     <h1 class="display-3">{{ realisation.titre }}</h1>
-    <p>{{ realisation.image }}</p>
+    {% load static %}
+    <img src="{% static realisation.image %}" alt="image {{ realisation.titre }}">
     <hr class="my-4">
     <p class="lead">{{ realisation.description|linebreaksbr}}</p>
     <p class="lead">
-        <a class="btn btn-outline-info" href="{{ realisation.lien }}" target=_blank role="button">Voir le projet</a>
+        <a class="btn btn-outline-primary" href="{{ realisation.lien }}" target=_blank role="button">Voir le projet</a>
     </p>
     <p class="lead">
-        <a class="btn btn-outline-info" href="{{ realisation.code }}" target=_blank role="button">Voir le code</a>
+        <a class="btn btn-outline-primary" href="{{ realisation.code }}" target=_blank role="button">Voir le code</a>
     </p>
 </div>
 {% endfor %}

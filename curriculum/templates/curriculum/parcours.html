@@ -13,26 +13,38 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active show" id="pro">
         {% for experience in experiences %}
-        <div class="experiences">
-            <h3>{{ experience.fonction }}</h3>
-            <p>{{ experience.employeur }}</p>
-            <p>{{ experience.ville }}</p>
-            <p>{{ experience.description|linebreaksbr}}</p>
-            <p>{{ experience.debut }}</p>
-            <p>{{ experience.fin }}</p>
+        <div class="jumbotron">
+            <h2 class="display-3">{{ experience.fonction }}</h2>
+            <h3 class="display-5">De {{ experience.debut }} à {{ experience.fin }}</h3>
+            <h4 class="display-7">{{ experience.employeur }} à {{ experience.ville }}</h4>
+            <hr class="my-4">
+            <p class="lead">{{ experience.description|linebreaksbr}}</p>
         </div>
         {% endfor %}
     </div>
     <div class="tab-pane fade" id="scolaire">
         {% for diplome in diplomes %}
-        <div class="diplomes">
-            <h3>{{ diplome.intitule }}</h3>
-            <p>{{ diplome.ecole }}</p>
-            <p>{{ diplome.ville }}</p>
-            <p>{{ diplome.description|linebreaksbr }}</p>
-            <p>{{ diplome.debut }}</p>
-            <p>{{ diplome.fin }}</p>
-            <p>{{ diplome.obtenu }}</p>
+        <div class="jumbotron">
+            <h2 class="display-3">{{ diplome.intitule }}</h2>
+            <h3 class="display-5">De {{ diplome.debut }} à {{ diplome.fin }}</h3>
+            <h4 class="display-7">{{ diplome.ecole }} à {{ diplome.ville }}</h4>
+            <fieldset class="form-group">
+                <legend>Diplôme Obtenu</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" disabled="" checked="">
+                        Oui
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" disabled="">
+                        Non
+                    </label>
+                </div>
+            </fieldset>
+            <hr class="my-4">
+            <p class="lead">{{ diplome.description|linebreaksbr }}</p>
         </div>
         {% endfor %}
     </div>
